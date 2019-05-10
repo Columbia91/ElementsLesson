@@ -21,15 +21,12 @@ namespace ElementsLesson
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.Name = nameTextBox.Text;
-            user.LastName = lastNameTextBox.Text;
-            user.Login = loginTextBox.Text;
-            user.Password = passwordBox.Password;
+            User user = new User(
+                loginTextBox.Text, nameTextBox.Text, lastNameTextBox.Text,
+                passwordBox.Password, emailTextBox.Text, phoneTextBox.Text);
+            
             string confirmPassword = confirmPasswordBox.Password;
-            user.Email = emailTextBox.Text;
-            user.Phone = phoneTextBox.Text;
-
+            
             Label[] labels = new Label[]
             {
                 nameLabel, loginLabel, passwordLabel, confirmPasswordLabel, emailLabel, phoneLabel
@@ -50,15 +47,15 @@ namespace ElementsLesson
                 results.Add(new ValidationResult("Пароль должен состоять мин. из 6 символов и макс. из 32 символов"));
             else if (!(Regex.IsMatch(user.Password, passwordPattern)))
                 results.Add(new ValidationResult("Пароль должен содержать цифровой и спец символы, а также буквы верхнего, нижнего регистра"));
-            
+
+            var converter = new System.Windows.Media.BrushConverter();
+
             if (!Validator.TryValidateObject(user, context, results, true) || results.Count > 0)
             {
                 for (int i = 0; i < labels.Length; i++)
                 {
                     foreach (var result in results)
                     {
-                        var converter = new System.Windows.Media.BrushConverter();
-
                         if (result.ErrorMessage.Contains(properties[i]) ||
                             result.ErrorMessage.Contains(properties[i + labels.Length]))
                         {
@@ -78,7 +75,12 @@ namespace ElementsLesson
             }
             else
             {
-
+                for (int i = 0; i < labels.Length; i++)
+                {
+                    var brush = (Brush)converter.ConvertFromString("Green");
+                    labels[i].Background = brush;
+                    labels[i].Content = "Успешно";
+                }
             }
         }
         

@@ -6,40 +6,41 @@
         xmlns:local="clr-namespace:ElementsLesson"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Регистрация" Background="#FF46B69D" FontFamily="Comic Sans MS" Height="410.911" Width="800">
+        Title="Регистрация" Background="#FF46B69D" FontFamily="Comic Sans MS" Height="544.998" Width="922.038">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="100*"/>
-        </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        <Image Source="resize.jpg" Grid.ColumnSpan="3"/>
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <TextBlock Text="Имя: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Фамилия: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Логин: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Пароль: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Повтор пароля: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Почта: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-            <TextBlock Text="Телефон: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <TextBox Name="nameTextBox" FontSize="16" Height="40" />
-            <TextBox Name="lastNameTextBox" FontSize="16" Height="40" MouseEnter="lastNameTextBox_MouseEnter" MouseLeave="lastNameTextBox_MouseLeave"/>
-            <TextBox Name="loginTextBox" FontSize="16" Height="40"/>
-            <PasswordBox Name="passwordBox" FontSize="16" Height="40"/>
-            <PasswordBox Name="confirmPasswordBox" FontSize="16" Height="40"/>
-            <TextBox Name="emailTextBox" FontSize="16" Height="40"/>
-            <TextBox Name="phoneTextBox" FontSize="16" Height="40"/>
-            <Button Content="Принять" FontSize="16" Margin="20 30" Click="Button_Click"/>
-        </StackPanel>
-        <StackPanel Grid.Column="2" Orientation="Vertical">
-            <Label Name="nameLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="lastNameLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="loginLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="passwordLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="confirmPasswordLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="emailLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-            <Label Name="phoneLabel" Height="40" FontSize="16" FontWeight="Bold"/>
-        </StackPanel>
+                <TextBlock Text="Имя: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Фамилия: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Логин: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Пароль: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Повтор пароля: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Почта: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+                <TextBlock Text="Телефон: " TextAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 10"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <TextBox Name="nameTextBox" FontSize="16" Height="40" />
+                <TextBox Name="lastNameTextBox" FontSize="16" Height="40" MouseEnter="lastNameTextBox_MouseEnter" MouseLeave="lastNameTextBox_MouseLeave"/>
+                <TextBox Name="loginTextBox" FontSize="16" Height="40"/>
+                <PasswordBox Name="passwordBox" FontSize="16" Height="40"/>
+                <PasswordBox Name="confirmPasswordBox" FontSize="16" Height="40"/>
+                <TextBox Name="emailTextBox" FontSize="16" Height="40"/>
+                <TextBox Name="phoneTextBox" FontSize="16" Height="40"/>
+                <Button Content="Принять" FontSize="16" Margin="20 30" Click="Button_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Vertical">
+                <Label Name="nameLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="lastNameLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="loginLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="passwordLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="confirmPasswordLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="emailLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+                <Label Name="phoneLabel" Opacity="0.5" Height="40" FontSize="16" FontWeight="Bold"/>
+            </StackPanel>
     </Grid>
 </Window>

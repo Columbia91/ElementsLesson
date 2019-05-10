@@ -35,5 +35,14 @@ namespace Models
         [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$",
             ErrorMessage = "Номер некорректный.")]
         public string Phone { get; set; }
+        public User()
+        {
+
+        }
+        public User(string login, string name, string lastName, string password, string email, string phone)
+        {
+            Login = login; Name = name; LastName = lastName;
+            Password = password; Email = email; Phone = phone;
+        }
     }
 }
