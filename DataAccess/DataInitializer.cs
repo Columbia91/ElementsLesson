@@ -10,7 +10,10 @@ namespace DataAccess
             context.Users.Add(new Models.User
             {
                 Login = "admin",
-                Password = DataEncryptor.HashPassword("123")
+                Name = "Ben",
+                Password = DataEncryptor.HashPassword("Qwerty@99"),
+                Email = "alpha@mail.ru",
+                Phone = "+77011012030"
             });
         }
     }
