@@ -1,19 +1,6 @@
 ﻿using DataAccess;
 using Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ElementsLesson
 {
@@ -32,24 +19,26 @@ namespace ElementsLesson
             var login = loginTextBox.Text;
             var password = passwordBox.Password;
 
-            if(string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            if(string.IsNullOrEmpty(login) || string.IsNullOrWhiteSpace(login) || 
+                string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Заполните все поля");
                 return;
             }
 
-            using(var context = new SecurityContext())
-            {
-                var user = context.Users.FirstOrDefault(searchingUser => searchingUser.Login == login);
+            UsersRepository repository = new UsersRepository();
+            var user = repository.CheckForAvailability("Login", login);
 
-                if (user != null && DataEncryptor.IsValidPassword(password, user.Password))
-                {
-                    MessageBox.Show("Добро пожаловать!");
-                }
-                else
-                {
-                    MessageBox.Show("Пшел вон, шал!");
-                }
+            if (user != null && DataEncryptor.IsValidPassword(password, user.Password))
+            {
+                MessageBox.Show("Добро пожаловать!", "Удачный вход", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Пшел вон, шал!", "Неудачный вход", MessageBoxButton.OK, MessageBoxImage.Error);
+                loginTextBox.Clear();
+                passwordBox.Clear();
             }
         }
     }

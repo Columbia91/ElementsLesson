@@ -10,7 +10,7 @@ namespace Models
         [Required]
         [StringLength(24, MinimumLength = 3, ErrorMessage = "Логин должен состоять мин. из 3 символов, макс. 24")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z0-9-_\.]{2,24}$",
-            ErrorMessage = "Логин должен начинаться на букву, а также может содержать цифры")]
+            ErrorMessage = "Логин допускает латинские буквы и может содержать цифры, начинается только на букву")]
         public string Login { get; set; }
 
         //********************************************
@@ -27,14 +27,15 @@ namespace Models
         //********************************************
         [Required]
         [RegularExpression(@"^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$",
-            ErrorMessage = "Почта имеет некорректный адрес.")]
+            ErrorMessage = "Почта имеет не корректный адрес. Пример: mailbox@yahoo.com")]
         public string Email { get; set; }
 
         //********************************************
         [Required]
-        [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$",
-            ErrorMessage = "Номер некорректный.")]
+        [RegularExpression(@"^\+?[7]\d{10}$",
+            ErrorMessage = "Телефонный номер не корректный. Пример: +77011010203")]
         public string Phone { get; set; }
+
         public User()
         {
 
